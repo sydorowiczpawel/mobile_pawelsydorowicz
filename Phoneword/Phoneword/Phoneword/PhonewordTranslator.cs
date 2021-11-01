@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Core
+namespace Phoneword
 {
     public static class PhonewordTranslator
     {
@@ -34,15 +34,15 @@ namespace Core
             return keyString.IndexOf(c) >= 0;
         }
 
-        static readonly string[] digits = {
+        static readonly string[] Digits = {
             "ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ"
         };
 
         static int? TranslateToNumber(char c)
         {
-            for (int i = 0; i < digits.Length; i++)
+            for (int i = 0; i < Digits.Length; i++)
             {
-                if (digits[i].Contains(c))
+                if (Digits[i].Contains(c))
                     return 2 + i;
             }
             return null;
