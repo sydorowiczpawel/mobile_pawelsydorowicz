@@ -1,21 +1,47 @@
 ﻿using Xamarin.Forms;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using Xamarin.Essentials;
 
 
 namespace Phoneword
 {
-    public class MainPage : ContentPage
+    public class OldMainPage : ContentPage
     {
         Entry phoneNumberText;
         Button translateButton;
         Button callButton;
         string translatedNumber;
+        Button loginButton;
+        StackLayout layout;
 
-        public MainPage()
+        public OldMainPage()
         {
+            layout = new StackLayout
+            {
+                Children =
+                {
+                    new Label {Text = "please log in"},
+                    new Label {Text = "Username", TextColor = Color.Blue},
+                    new Entry(),
+                    new Label {Text = "Password", TextColor = Color.Purple},
+                    new Entry {IsPassword = true},
+                }
+            };
+            
+            loginButton = new Button { Text = "Login" };
+
+            layout.Children.Add(loginButton);
+
+            Content = layout;
+
+            loginButton.Clicked += (sender, e) =>
+            {
+                Debug.WriteLine("Clicked !");
+            };
+            
             this.Padding = new Thickness(20, 20, 20, 20);
             StackLayout panel = new StackLayout
             {
